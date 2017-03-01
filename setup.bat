@@ -15,6 +15,7 @@ set port=%1
 @ECHO OFF
 SET ANACONAREGKEY=Anaconda_*
 @IF EXIST %UserProfile%\Anaconda\Scripts\conda.exe SET CONDACMD=%UserProfile%\Anaconda\Scripts
+@IF EXIST %UserProfile%\Anaconda3\Scripts\conda.exe SET CONDACMD=%UserProfile%\Anaconda3\Scripts
 @IF %CONDACMD%=="" FOR /f %%p in ('where anaconda.bat /f') do SET CONDACMD=%%p
 @IF %CONDACMD%=="" FOR /f %%z in ('REG Query HKU /k /s /f %ANACONAREGKEY%') DO IF %%z NEQ End SET ACMD=%%z
 @IF %CONDACMD%=="" IF NOT %ACMD%=="" SET ACMD=%ACMD:HKEY_USERS=HKU%\InstallPath
